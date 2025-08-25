@@ -28,12 +28,12 @@ def free_resources(sidekick):
         print(f"Exception during cleanup: {e}")
 
 
-with gr.Blocks(title="Sidekick", theme=gr.themes.Default(primary_hue="emerald")) as ui:
-    gr.Markdown("## Sidekick Personal Co-Worker")
+with gr.Blocks(title="The Sidekick", theme=gr.themes.Default(primary_hue="emerald")) as ui:
+    gr.Markdown("## TheSidekick: Personal Co-Worker")
     sidekick = gr.State(delete_callback=free_resources)
 
     with gr.Row():
-        chatbot = gr.Chatbot(label="Sidekick", height=300, type="messages")
+        chatbot = gr.Chatbot(label="TheSidekick", height=300, type="messages")
     with gr.Group():
         with gr.Row():
             message = gr.Textbox(show_label=False, placeholder="Your request to the Sidekick")

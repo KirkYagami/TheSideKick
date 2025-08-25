@@ -1,6 +1,6 @@
 from playwright.async_api import async_playwright
 from langchain_community.agent_toolkits import PlayWrightBrowserToolkit
-from dotenv import load_dotenv
+from .env_helper import load_environment
 import os
 import requests
 from langchain.agents import Tool
@@ -11,12 +11,12 @@ from langchain_community.utilities import GoogleSerperAPIWrapper
 from langchain_community.utilities.wikipedia import WikipediaAPIWrapper
 
 
-
-load_dotenv(override=True)
+load_environment()
 pushover_token = os.getenv("PUSHOVER_TOKEN")
 pushover_user = os.getenv("PUSHOVER_USER")
 pushover_url = "https://api.pushover.net/1/messages.json"
 serper = GoogleSerperAPIWrapper()
+
 
 async def playwright_tools():
     playwright = await async_playwright().start()
